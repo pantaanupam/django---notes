@@ -1,0 +1,27 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+    {% if query %}
+        <h1 class="border-bottom">Search for '{{ query }}'</h1>
+    {% endif %}
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 mt-4">
+        {% for object in object_list %}
+            <div class="col mb-4">
+                <div class="card">
+                    {#                    <img src="..." class="card-img-top" alt="...">#}
+                    <a class="text-dark bg-light text-decoration-none " href="{% url 'notes:post-detail' object.id %}">
+                        <div class="card-body">
+                            {% if object.title %}
+                                <h5 class="card-title">{{ object.title }}</h5>
+                                <hr>
+                            {% endif %}
+                            <p class="small text-muted align-right"><em>{{ object.date_posted }}</em></p>
+                            <p class="card-text">{{ object.description }}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

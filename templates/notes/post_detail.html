@@ -1,0 +1,22 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+    <div class="row ">
+        <div class="col mb-4">
+            <div class="card">
+                {#                    <img src="..." class="card-img-top" alt="...">#}
+                <div class="card-body">
+                    <h2 class="card-title">{{ object.title }}</h2>
+                    <p class="small text-muted align-right">{{ object.date_posted }}</p>
+                    <p class="card-text my-4 py-4">{{ object.description }}</p>
+                </div>
+            </div>
+            <div class="justify-content-center">
+                <a class="btn btn-outline-info" href="../">Back</a>
+                <a class="btn btn-outline-info" href="{% url 'notes:post-update' object.id %}">Edit</a>
+                <a class="btn btn-outline-danger" href="{% url 'notes:post-delete' object.id %}">Delete</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

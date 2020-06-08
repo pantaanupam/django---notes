@@ -1,0 +1,17 @@
+{% extends 'notes/base.html' %}
+{% block content %}
+    <h1 class="border-bottom">Delete Post</h1>
+    <div class="card my-4 p-4">
+        <form method="post">
+            {% csrf_token %}
+            <h2>Confirm Delete</h2>
+            <div class="mt-4">
+                <p>{{ object.title }}</p>
+                <button class="btn btn-outline-danger my-4" type="submit">Delete</button>
+                <a class="btn btn-outline-info" href="../">Cancel</a>
+            </div>
+        </form>
+
+    </div>
+{% endblock %}
+
